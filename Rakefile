@@ -9,7 +9,7 @@ begin
     gemspec.summary     = "Quick little arithmetic plain-text captcha"
     gemspec.description = "Quick little arithmetic plain-text captcha"
     gemspec.email       = "coryjwilkerson@gmail.com"
-    gemspec.homepage    = "http://github.com/technicalpickles/the-perfect-gem"
+    gemspec.homepage    = "http://github.com/corywilkerson/mathcha"
     gemspec.authors     = ["Cory Wilkerson"]
   end
 rescue LoadError
