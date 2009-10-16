@@ -55,7 +55,7 @@ module Mathcha
       
       case
       when op == DIV
-        generate_solv(op, seed1, seed2) if (sol % 2 != 0) or (sol < 0)
+        generate_solv(op, seed1, seed2) if (!sol.is_a?(Integer)) or (sol < 0)
       when op == SUB
         generate_solv(op, seed1, seed2) if sol < 0
       end
