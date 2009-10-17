@@ -33,13 +33,13 @@ module Mathcha
     # * The default session key for this thing is :solv, I'd suggest you leave it be.
     # * Only one mathcha can exist at a time, for now.
     def mathcha_tag(options={})
-      options.reverse_merge!({:seed_one => 80, :seed_two => 10})
+      options.reverse_merge!({:seed_one => 300, :seed_two => 100})
 
       solv_key    = Time.now.to_i       
       result, eq  = nil, nil
       
       while result.nil? or !result.is_a?(Integer) or result < 0
-        result, eq = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], 80, 10)
+        result, eq = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], options[:seed_one], options[:seed_two])
       end 
 
       session[:solv] = [solv_key, eval(eq)]
