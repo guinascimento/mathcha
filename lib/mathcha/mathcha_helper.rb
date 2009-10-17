@@ -1,3 +1,5 @@
+require 'linguistics'
+
 module Mathcha
 
   # Helper included in ActionView::Base. Use mathcha_tag in your views to 
@@ -39,13 +41,13 @@ module Mathcha
       result, eq  = nil, nil
       
       while result.nil? or !result.is_a?(Integer) or result < 0
-        result, eq = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], options[:seed_one], options[:seed_two])
+        result, eq, eq_slick = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], options[:seed_one], options[:seed_two])
       end 
 
       session[:solv] = [solv_key, eval(eq)]
       
       html = ''
-      html << %{#{eq} = <input type="text" name="solv" />\n}
+      html << %{#{eq_slick.titlecase} = <input type="text" name="solv" />\n}
       html << %{<input type="hidden" name="solv_key" value="#{solv_key}" />\n}
       html
     end
@@ -58,12 +60,14 @@ module Mathcha
       # want to bail on division by zero, just cut it off.
       return [nil, nil] if (op == DIV and op2 == 0)
       
+      eq_slick = "#{Linguistics::EN.numwords(op1)} #{op} #{Linguistics::EN.numwords(op2)}"
+      
       sol = eval(eq = "#{op1.to_f} #{op} #{op2.to_f}")
       sol = (sol == sol.floor) ? sol.to_i : sol
       
-      return [sol, eq]
+      return [sol, eq, eq_slick]
     end
     
     private :generate_solv
   end 
-end 
+end
