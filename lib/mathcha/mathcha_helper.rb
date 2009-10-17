@@ -55,6 +55,9 @@ module Mathcha
       op1 = rand(seed1)
       op2 = rand(seed2)
       
+      # want to bail on division by zero, just cut it off.
+      return [nil, nil] if (op == DIV and op2 == 0)
+      
       sol = eval(eq = "#{op1.to_f} #{op} #{op2.to_f}")
       sol = (sol == sol.floor) ? sol.to_i : sol
       
