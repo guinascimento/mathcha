@@ -34,10 +34,6 @@ In your view (this will dump the proper input and a hidden key field)
 
 In your controller
 
-`def some_action
-  if (verify_mathcha(params))
-    do_something
-  end
-end`
+`if (verify_mathcha(params))`
 
 Copyright (c) 2009 Cory Wilkerson, released under the MIT license
