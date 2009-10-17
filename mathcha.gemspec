@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mathcha}
-  s.version = "0.5.3"
+  s.version = "0.5.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Cory Wilkerson"]
@@ -13,11 +13,11 @@ Gem::Specification.new do |s|
   s.description = %q{Quick little arithmetic plain-text captcha}
   s.email = %q{coryjwilkerson@gmail.com}
   s.extra_rdoc_files = [
-    "README"
+    "README.markdown"
   ]
   s.files = [
     "MIT-LICENSE",
-     "README",
+     "README.markdown",
      "Rakefile",
      "VERSION",
      "install.rb",
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "lib/mathcha/mathcha_helper.rb",
      "lib/mathcha/mathcha_verify.rb",
      "mathcha.gemspec",
+     "pkg/mathcha-0.5.3.gem",
      "rails/init.rb",
      "tasks/mathcha_tasks.rake",
      "test/mathcha_test.rb",
