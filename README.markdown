@@ -26,11 +26,19 @@ Next, modify your config/environment.rb to reference the mathcha gem:
 
 `config.gem "mathcha", :source => "http://gemcutter.org"`
 
-## Example
+## Usage
 
-* In your view: <%= mathcha_tag %>
-* In your controller: if (verify_mathcha(params))
-* More soon.
+In your view (this will dump the proper input and a hidden key field)
+
+`<%= mathcha_tag %>`
+
+In your controller
+
+`def some_action
+  if (verify_mathcha(params))
+    do_something
+  end`
+end
 
 
 Copyright (c) 2009 Cory Wilkerson, released under the MIT license
