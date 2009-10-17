@@ -40,5 +40,4 @@ In your controller
   end
 end`
 
-
 Copyright (c) 2009 Cory Wilkerson, released under the MIT license
