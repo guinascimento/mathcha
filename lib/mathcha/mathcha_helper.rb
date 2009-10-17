@@ -51,7 +51,7 @@ module Mathcha
       op1 = rand(seed1)
       op2 = rand(seed2)
       
-      sol = eval(eq = "#{op1} #{op} #{op2}")
+      sol = eval(eq = "#{op1.to_f} #{op} #{op2.to_f}")
       sol = (sol == sol.floor) ? sol.to_i : sol
       
       case
