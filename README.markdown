@@ -2,11 +2,13 @@
 
 Mathcha is a horribly-named, arithmetic-based, text-driven captcha. Why you ask? For very few good reasons:
 
-- I had never written a plugin.
-- I wanted to play with a few bits of technology I hadn't touched: 
-  - git, github, gemcutter, gem packaging, jeweler
-- I really like Recaptcha it's just that I've seen a few folk using simple math problems; I prefer it.
-- I need this functionality across a few applications I've been working on.
+* I had never written a plugin.
+* I wanted to play with a few bits of technology I hadn't touched: 
+  * git
+  * github
+  * gemcutter, gem packaging, jeweler
+* I really like Recaptcha it's just that I've seen a few folk using simple math problems; I prefer it.
+* I need this functionality across a few applications I've been working on.
 
 ## Note
 
