@@ -37,8 +37,8 @@ In your controller
 `def some_action
   if (verify_mathcha(params))
     do_something
-  end`
-end
+  end
+end`
 
 
 Copyright (c) 2009 Cory Wilkerson, released under the MIT license
