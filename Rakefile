@@ -12,7 +12,7 @@ begin
     gemspec.homepage    = "http://github.com/corywilkerson/mathcha"
     gemspec.authors     = ["Cory Wilkerson"]
     
-    gemspec.add_dependency('Linguistics', '> 1.0.5')
+    gemspec.add_dependency('Linguistics', '>= 1.0.5')
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
