@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mathcha}
-  s.version = "0.5.1"
+  s.version = "0.5.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Cory Wilkerson"]
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
      "pkg/mathcha-0.4.6.gem",
      "pkg/mathcha-0.4.7.gem",
      "pkg/mathcha-0.5.0.gem",
+     "pkg/mathcha-0.5.1.gem",
      "rails/init.rb",
      "tasks/mathcha_tasks.rake",
      "test/mathcha_test.rb",
