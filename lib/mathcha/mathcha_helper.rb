@@ -52,6 +52,7 @@ module Mathcha
       op2 = rand(seed2)
       
       sol = eval(eq = "#{op1} #{op} #{op2}")
+      sol = (sol == sol.floor) ? sol.to_i : sol
       
       case
       when op == DIV
