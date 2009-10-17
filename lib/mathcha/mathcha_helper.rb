@@ -34,14 +34,18 @@ module Mathcha
     # * Only one mathcha can exist at a time, for now.
     def mathcha_tag(options={})
       options.reverse_merge!({:seed_one => 80, :seed_two => 10})
-      
-      solv_key  = Time.now.to_i 
-      solv_prob = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], options[:seed_one].to_i, options[:seed_two].to_i)
 
-      session[:solv] = [solv_key, eval(solv_prob)]
+      solv_key    = Time.now.to_i       
+      result, eq  = nil, nil
+      
+      while result.nil? or !result.is_a?(Integer) or result < 0
+        result, eq = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], 80, 10)
+      end 
+
+      session[:solv] = [solv_key, eval(eq)]
       
       html = ''
-      html << %{#{solv_prob} = <input type="text" name="solv" />\n}
+      html << %{#{eq} = <input type="text" name="solv" />\n}
       html << %{<input type="hidden" name="solv_key" value="#{solv_key}" />\n}
       html
     end
@@ -54,14 +58,7 @@ module Mathcha
       sol = eval(eq = "#{op1.to_f} #{op} #{op2.to_f}")
       sol = (sol == sol.floor) ? sol.to_i : sol
       
-      case
-      when op == DIV
-        generate_solv(op, seed1, seed2) if (!sol.is_a?(Integer)) or (sol < 0)
-      when op == SUB
-        generate_solv(op, seed1, seed2) if sol < 0
-      end
-      
-      return eq
+      return [sol, eq]
     end
     
     private :generate_solv
