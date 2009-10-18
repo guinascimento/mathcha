@@ -54,8 +54,8 @@ module Mathcha
       end
       
       html = ''
-      html << %{#{eq_slick.titlecase} = <input type="text" name="solv" />\n}
-      html << %{<input type="hidden" name="solv_key" value="#{solv_key}" #{html_options} />\n}
+      html << %{#{eq_slick.titlecase} = <input type="text" name="solv" #{html_options} />\n}
+      html << %{<input type="hidden" name="solv_key" value="#{solv_key}" />\n}
       html
     end
     
