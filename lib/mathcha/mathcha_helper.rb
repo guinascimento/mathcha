@@ -35,20 +35,27 @@ module Mathcha
     # * The default session key for this thing is :solv, I'd suggest you leave it be.
     # * Only one mathcha can exist at a time, for now.
     def mathcha_tag(options={})
-      options.reverse_merge!({:seed_one => 300, :seed_two => 100})
+      solv_key = Time.now.to_i     
+      seed_one = options[:one] || 300
+      seed_two = options[:two] || 100
 
-      solv_key    = Time.now.to_i       
-      result, eq  = nil, nil
+      result = nil
       
       while result.nil? or !result.is_a?(Integer) or result < 0
-        result, eq, eq_slick = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], options[:seed_one], options[:seed_two])
+        result, eq, eq_slick = generate_solv(SOLV_OPS[rand(SOLV_OPS.size)], seed_one, seed_two)
       end 
 
+      # Here we bury away the equation.
       session[:solv] = [solv_key, eval(eq)]
+      
+      if options[:html]
+        html_options = options[:html].inject([]){|dump, pair| dump << "#{pair[0]}=\"#{pair[1]}\""}
+        html_options.join(" ")
+      end
       
       html = ''
       html << %{#{eq_slick.titlecase} = <input type="text" name="solv" />\n}
-      html << %{<input type="hidden" name="solv_key" value="#{solv_key}" />\n}
+      html << %{<input type="hidden" name="solv_key" value="#{solv_key}" #{html_options} />\n}
       html
     end
     
